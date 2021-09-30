@@ -1,16 +1,16 @@
 
-export default function Display({code,name,desc,price,disc,func}){
+export default function Display({elt ,func}){
 
     return(
         <>
         <ul>
-            <li>{code}</li>
-            <li>{name}</li>
-            <li>{desc}</li>
-            <li>{price}</li>
-            <li>{disc}</li>
+            <li>{elt.code}</li>
+            <li>{elt.name}</li>
+            <li>{elt.description}</li>
+            <li>{elt.price}</li>
+            <li>{elt.discount}</li>
         </ul>
-        <button onClick={() => func(code)}> Adicionar </button>
+        <button onClick={() => func(elt.code)}> Adicionar </button>
         </>
     )
 }

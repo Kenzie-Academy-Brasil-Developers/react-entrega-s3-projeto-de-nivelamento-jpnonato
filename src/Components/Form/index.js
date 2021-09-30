@@ -16,22 +16,22 @@ export default function Form({products}){
 
 
     function handleClick(){
-       const item = {
+       const it = {
             code: cod,
             name: nome,
             description: descr,
             price: prec,
             discount: descont
         }
-        console.log(item)
+        console.log(it)
         
-        SetList([...list, item]) 
+        SetList([...list, it]) 
         console.log(list)
     }
 
     function add(id){
-     const item = list.find((elt) => elt.code === id)
-     console.log(id)
+     const item = list.filter((elt) => elt.code === id)[0]
+     console.log(item)
 
      setSelect([...select,item])
      
@@ -64,15 +64,15 @@ export default function Form({products}){
             <button onClick={handleClick}> Cadastrar </button>
          </section>
          <section>
-             {
-               list.map((elt) => <Display code={elt.code} name={elt.name} desc ={elt.description} price={elt.price} disc={elt.discount} func={add} />)
+            {
+               list.map((elt) =>  <Display elt={elt} func={add} />)
             }
             
          </section>
          <section>
              <h3>Cart</h3>
              {
-                select.map((elt) => <SelectedItem code={elt.code} name={elt.name} desc={elt.description} price={elt.price} disc={elt.discount}  />)
+                select.map((elt) => <SelectedItem  elt={elt}  />)
              }
 
          </section>
